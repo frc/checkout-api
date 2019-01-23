@@ -31,6 +31,16 @@ class Checkout extends CheckoutFinland\Api {
         parent::__construct($merchantId, $merchantSecret, $serviceName, $serverUrl);
     }
 
+    public function getData() {
+        return [
+            'customer' => $this->customer,
+            'address' => $this->address,
+            'items' => $this->items,
+            'urls' => $this->urls,
+            'amount' => $this->amount
+        ];
+    }
+
     /**
      * @return null
      */
