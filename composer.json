@@ -1,0 +1,27 @@
+{
+    "name": "frc/checkoutApi",
+    "license": "MIT",
+    "type": "library",
+    "description": "Checkout finland wrapper",
+    "keywords": [
+        "WordPress",
+        "php"
+    ],
+    "authors": [
+        {
+            "name": "Janne Aalto",
+            "email": "janne.aalto@frantic.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.3",
+        "guzzlehttp/guzzle": "^6.3",
+        "ramsey/uuid": "^3.8",
+        "frc/slack-notification": "dev-master"
+    },
+    "autoload": {
+        "files": [
+            "src/Checkout.php"
+        ]
+    }
+}
