@@ -20,6 +20,7 @@ require_once(dirname(__FILE__) . '/CheckoutFinland/UrlPair.php');
 class Checkout extends CheckoutFinland\Api {
 
     private $customer = null;
+    private $address = null;
     private $items = [];
     private $urls = null;
     private $amount = 0;
@@ -42,6 +43,14 @@ class Checkout extends CheckoutFinland\Api {
      */
     public function setCustomer(string $email = '', string $firstName = '', string $lastName = '', string $phone = '', string $vatId = ''):void {
         $this->customer = new CheckoutFinland\Customer($email, $firstName, $lastName, $phone, $vatId);
+    }
+
+    public function getAddress() {
+        return $this->address;
+    }
+
+    public function setAddress(string $streetAddress = '', string $postalCode = '', string $city = '', string $county = '', string $country = 'FI'):void {
+        $this->address = new CheckoutFinland\Address($streetAddress, $postalCode, $city, $county, $country);
     }
 
     /**
@@ -81,6 +90,8 @@ class Checkout extends CheckoutFinland\Api {
         $order = [
             'items' => $this->items,
             'customer' => $this->customer,
+            'deliveryAddress' => $this->address,
+            'invoicingAddress' => $this->address,
             'redirectUrls' => $this->urls,
             'callbackUrls' => $this->urls,
         ];
