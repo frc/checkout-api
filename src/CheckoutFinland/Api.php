@@ -151,7 +151,12 @@ class Api
 
         error_log("== {$this->serviceName} Payment ==\n\nRequest ID: {$response->getHeader('cof-request-id')[0]}\n\n");
 
-        return ['response' => $response, 'headers' => $responseHeaders, 'body' => json_decode($responseBody)];
+        return [
+            'response' => $response,
+            'headers'  => $responseHeaders,
+            'body'     => json_decode($responseBody),
+            'request'  => ['body' => $body, 'headers' => $headers]
+        ];
     }
 
     private static function exposeMandatoryFields($opts):array {
