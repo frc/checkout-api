@@ -45,7 +45,7 @@ class Api
         'callbackUrls'
     );
 
-    public function __construct(string $merchantId, string $merchantSecret, string $serverUrl = 'https://api.checkout.fi', string $serviceName = '') {
+    public function __construct(string $merchantId, string $merchantSecret, string $serviceName = '', string $serverUrl = 'https://api.checkout.fi') {
         $this->merchantId     = $merchantId;
         $this->merchantSecret = $merchantSecret;
         $this->serverUrl      = $serverUrl;

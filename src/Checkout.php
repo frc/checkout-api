@@ -24,10 +24,10 @@ class Checkout extends CheckoutFinland\Api {
     private $urls = null;
     private $amount = 0;
 
-    public function __construct(string $serverUrl = 'https://api.checkout.fi', string $serviceName = '') {
+    public function __construct(string $serviceName = '', string $serverUrl = 'https://api.checkout.fi') {
         $merchantId = getenv('CHECKOUT_MERCHANT_ID');
         $merchantSecret = getenv('CHECKOUT_MERCHANT_SECRET');
-        parent::__construct($merchantId, $merchantSecret, $serverUrl, $serviceName);
+        parent::__construct($merchantId, $merchantSecret, $serviceName, $serverUrl);
     }
 
     /**
