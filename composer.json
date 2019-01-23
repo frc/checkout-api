@@ -1,5 +1,5 @@
 {
-    "name": "frc/checkoutApi",
+    "name": "frc/checkout-api",
     "license": "MIT",
     "type": "library",
     "description": "Checkout finland wrapper",
@@ -14,7 +14,7 @@
         }
     ],
     "require": {
-        "php": ">=5.3",
+        "php": ">=7.0",
         "guzzlehttp/guzzle": "^6.3",
         "ramsey/uuid": "^3.8",
         "frc/slack-notification": "dev-master"
