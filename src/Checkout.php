@@ -74,7 +74,7 @@ class Checkout extends CheckoutFinland\Api {
      * @param null $items
      */
     public function setItem(float $unitPrice = 0, int $units = 0, int $vatPercentage = 0, string $productCode = '', string $deliveryDate = '', string $description = ''):void {
-        $item = new CheckoutFinland\Item($unitPrice * 100, $units, $vatPercentage, $productCode, $deliveryDate, $description);
+        $item = new CheckoutFinland\Item($unitPrice, $units, $vatPercentage, $productCode, $deliveryDate, $description);
         $exposedItem = $item->expose();
         $this->amount += $exposedItem['unitPrice'] * $exposedItem['units'];
         $this->items[] = $item;
