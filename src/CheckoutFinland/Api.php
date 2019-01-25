@@ -118,6 +118,7 @@ class Api
                 $notify->sendMessageToSlack($error);
                 error_log($error);
 
+                // @todo: this is no viable with rest (return error and handle it in code)
                 if (!empty($failureUrl)) {
                     session_start();
                     $_SESSION['orderError'] = $e->getMessage();
@@ -140,6 +141,7 @@ class Api
             $notify->sendMessageToSlack($error);
             error_log($error);
 
+            // @todo: this is no viable with rest (return error and handle it in code)
             if (!empty($failureUrl)) {
                 session_start();
                 $_SESSION['orderError'] = $error;
