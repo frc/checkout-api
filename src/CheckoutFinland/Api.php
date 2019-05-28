@@ -3,6 +3,7 @@ namespace CheckoutFinland;
 
 use function array_filter;
 use function error_log;
+use Exception;
 use GuzzleHttp;
 use Frc;
 
@@ -126,6 +127,8 @@ class Api
                     wp_redirect($failureUrl);
                     exit();
                 }
+                throw new Exception($error, 11, $e);
+
             }
         }
 
@@ -149,7 +152,7 @@ class Api
                 wp_redirect($failureUrl);
                 exit();
             }
-
+            throw new Exception($error, 12);
         }
 
         error_log("== {$this->serviceName} Payment ==\n\nRequest ID: {$response->getHeader('cof-request-id')[0]}\n\n");

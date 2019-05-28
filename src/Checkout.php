@@ -9,6 +9,7 @@
 namespace Frc\checkoutApi;
 
 use CheckoutFinland;
+use Exception;
 
 require_once(dirname(__FILE__) . '/CheckoutFinland/Api.php');
 require_once(dirname(__FILE__) . '/CheckoutFinland/Address.php');
@@ -111,7 +112,13 @@ class Checkout extends CheckoutFinland\Api {
             unset($order['callbackUrls']);
         }
 
-        return parent::openPayment($orderHash, $this->amount, 'EUR', 'FI', $order, $failureUrl);
+        try {
+            $return = parent::openPayment($orderHash, $this->amount, 'EUR', 'FI', $order, $failureUrl);;
+        } catch (Exception $e) {
+            throw new Exception($e->getMessage(), 1, $e);
+        }
+
+        return $return;
     }
 
     public function filterValidationParams(array $params): array {
