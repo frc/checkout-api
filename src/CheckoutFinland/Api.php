@@ -1,6 +1,7 @@
 <?php
 namespace CheckoutFinland;
 
+use function array_filter;
 use function error_log;
 use GuzzleHttp;
 use Frc;
@@ -221,7 +222,12 @@ class Api
     }
 
     private static function arrayFilter(array $items) {
-        return array_filter($items);
+        $arr = array_filter($items);
+        if (isset($items['vatPercentage']) && !isset($arr['vatPercentage'])) {
+            $arr['vatPercentage'] = $items['vatPercentage'];
+        }
+
+        return $arr;
     }
 
 
