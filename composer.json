@@ -15,8 +15,8 @@
     ],
     "require": {
         "php": ">=7.0",
-        "guzzlehttp/guzzle": "^6.3",
-        "ramsey/uuid": "^3.8",
+        "guzzlehttp/guzzle": "^7.4",
+        "ramsey/uuid": "^4.2",
         "frc/slack-notification": "dev-master"
     },
     "autoload": {
